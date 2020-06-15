@@ -21,6 +21,7 @@ mongoose.connect('mongodb://localhost:27017/appventas', opciones)
             })
 
 app.use(cors()); // Permite peticiones de cualquier dominio
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/cliente', cliente);

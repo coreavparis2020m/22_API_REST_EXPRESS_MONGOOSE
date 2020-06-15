@@ -53,7 +53,6 @@ app.get('/cif/:cif', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-
     let cliente = new Cliente({
         nombre: req.body.nombre,
         cif: req.body.cif,
