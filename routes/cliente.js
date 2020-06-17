@@ -38,7 +38,7 @@ app.get('/:_id', (req, res) => {
 
 app.get('/search/:termino', (req, res) => {
 
-    Cliente.find({nombre: {$regex: req.params.termino}}, (error, cliente) => {
+    Cliente.find({nombre: {$regex: req.params.termino}}, (error, clientes) => {
         if (error) {
             return res.status(400).json({
                 error: error
@@ -46,7 +46,7 @@ app.get('/search/:termino', (req, res) => {
         }
 
         res.status(200).json({
-            cliente: cliente
+            clientes: clientes
         })
 
     })
