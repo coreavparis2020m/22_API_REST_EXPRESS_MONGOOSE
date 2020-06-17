@@ -12,11 +12,11 @@ app.get('/', (req, res) => {
                 error: error
             })
         }
-
-        res.status(200).json({
-            clientes: clientes
-        })
-
+        // setTimeout(() => { Test latencia con 3 segundos
+            res.status(200).json({
+                clientes: clientes
+            })
+        // }, 3000)
     })
 })
 
@@ -36,9 +36,9 @@ app.get('/:_id', (req, res) => {
     })
 })
 
-app.get('/cif/:cif', (req, res) => {
+app.get('/search/:termino', (req, res) => {
 
-    Cliente.find({cif: req.params.cif}, (error, cliente) => {
+    Cliente.find({nombre: {$regex: req.params.termino}}, (error, cliente) => {
         if (error) {
             return res.status(400).json({
                 error: error
@@ -69,10 +69,11 @@ app.post('/', (req, res) => {
                 error: error
             })
         }
-
-        res.status(200).json({
-            mensaje: `El cliente ${clienteSaved.nombre} ha sido creado`
-        })
+        // setTimeout(() => { Test para delay en cliente
+            res.status(200).json({
+                mensaje: `El cliente ${clienteSaved.nombre} ha sido creado`
+            })
+        //}, 3000)
     })
 })
 
