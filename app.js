@@ -6,6 +6,7 @@ let app = express();
 let cors = require('cors');
 
 let cliente = require('./routes/cliente');
+let factura = require('./routes/factura');
 
 let opciones = {
     useNewUrlParser: true,
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/cliente', cliente);
+app.use('/factura', factura);
 
 app.listen(3000, () => {
     console.log('Servidor escuchando en http://localhost:3000');
